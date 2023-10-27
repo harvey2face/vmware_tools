@@ -1,0 +1,17 @@
+---
+- name: Automated vMotion
+  hosts: all
+  gather_facts: False
+
+  tasks:
+  - name: perform vmware vmotion for vm named c8000v on vcenter address 10.200.15.30
+    community.vmware.vmware_vmotion:
+      hostname: "{{ _hostname_ }}"
+      username: "{{ _username_ }}"
+      password: "{{ _password_ }}"
+      vm_name: "{{ _vm_name_ }}"
+      destination_host: "{{ _destination_host_ }}"
+    delegate_to: localhost
+
+
+  
