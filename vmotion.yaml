@@ -1,15 +1,15 @@
 ---
-- name: Automated vMotion
-  hosts: all
-  connection: httpapi
-  gather_facts: False
+  - name: Automated vMotion
+    hosts: all
+    connection: httpapi
+    gather_facts: no
 
-  tasks:
-    - name: perform vmware vmotion for vm named c8000v on vcenter address 10.200.15.30
-      community.vmware.vmware_vmotion:
-        vm_name: "{{ _vm_name_ }}"
-        destination_host: "{{ _destination_host_ }}"
-      delegate_to: localhost
+    tasks:
+      - name: perform vmware vmotion for vm named c8000v on vcenter address 10.200.15.30
+        community.vmware.vmware_vmotion:
+          vm_name: "{{ _vm_name_ }}"
+          destination_host: "{{ _destination_host_ }}"
+        delegate_to: localhost
 
 
   
